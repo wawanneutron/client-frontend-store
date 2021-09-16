@@ -1,0 +1,14 @@
+$color-orange: #e64a19;
+$color-white: #fff;
+.header-main {
+  background-color: $color-orange;
+  color: $color-white;
+  padding: 7px 0;
+  span {
+    color: $color-white;
+  }
+  .search-button {
+    background-color: $color-white;
+    color: $color-orange;
+  }
+}
