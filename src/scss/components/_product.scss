@@ -1,3 +1,45 @@
+.text-header {
+  margin-top: 30px;
+}
 .product-terlaris {
   margin-top: 30px;
+  .card-product {
+    text-align: center;
+    margin-bottom: 50px;
+    box-shadow: 0 15px 30px rgba(102, 113, 228, 0.13);
+    border: 1px solid #aeaeae67;
+    border-radius: 8px;
+  }
+  .product-thumbnail {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+    img {
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: all 0.5s ease;
+      &:hover {
+        transform: scale(1.5);
+      }
+    }
+  }
+  .title {
+    color: $color-text-header;
+  }
+  .categories {
+    color: $color-text-paragraf;
+  }
+  .discount {
+    .bg-info {
+      background-color: $color-orange !important;
+    }
+  }
+  s {
+    color: $color-orange;
+  }
+  .price {
+    color: $color-text-subheader;
+  }
 }

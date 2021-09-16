@@ -7,13 +7,6 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img
-          src="https://adminsport.my.id/storage/slider-images/lPrnFOhVS9vcd4fFPIfBJugPO5dPv6HMLePTBtJJ.png"
-          class="d-block w-100"
-          alt="carousel"
-        />
-      </div>
-      <div class="carousel-item">
-        <img
           src="https://adminsport.my.id/storage/slider-images/ekZiNhONtS1QFccGVSKEBfXnSUPTZpUqh8zAEuDw.png"
           class="d-block w-100"
           alt="carousel"

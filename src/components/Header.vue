@@ -89,11 +89,49 @@
                 Kategori
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">
+                    <img
+                      src="https://adminsport.my.id/storage/category-images/MxL2JxlDVtBv8KEkuITGKbxYQWS5ibWTbvBIKXDT.png"
+                      width="50"
+                      alt="kategori"
+                    />
+                    Sepatu Kerja
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">
+                    <img
+                      src="https://adminsport.my.id/storage/category-images/yGxOA4ql1fmhAdwLOw38KyrEKkXgMTNu9lIYxqLQ.png"
+                      width="50"
+                      alt="kategori"
+                    />
+                    Sepatu Sport
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">
+                    <img
+                      src="https://adminsport.my.id/storage/category-images/WzDMMMg9FSHYTL9pjlUv9Qkbi8yjBGDeKp6Ho8Kj.png"
+                      width="50"
+                      alt="kategori"
+                    />
+                    Baju Jersey
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">
+                    <img
+                      src="https://adminsport.my.id/storage/category-images/WivpPUv4HQVxR6YUxkyBgf6xrvIK3rrk8hFyhl1x.webp"
+                      width="50"
+                      alt="kategori"
+                    />
+                    Fashion Pria
+                  </a>
+                </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                  <a class="dropdown-item" href="#">Lihat semua product</a>
                 </li>
               </ul>
             </li>

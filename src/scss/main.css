@@ -71,6 +71,28 @@
   font-size: 15px;
 }
 
+.section-header .navbar .dropdown-menu {
+  padding: 20px;
+}
+
+.section-header .navbar .dropdown-menu .dropdown-item {
+  margin-top: 15px;
+  padding: 8px 24px;
+}
+
+.section-header .navbar .dropdown-menu .dropdown-item img {
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.section-header .navbar .dropdown-menu .dropdown-item:hover {
+  background-color: #e64a19;
+  color: #fff;
+  border-radius: 8px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
 .carousel .carousel-control-prev-icon,
 .carousel .carousel-control-next-icon {
   background-color: #fff;
@@ -78,11 +100,64 @@
   color: rgba(0, 0, 0, 0.486);
 }
 
+.text-header {
+  margin-top: 30px;
+}
+
 .product-terlaris {
   margin-top: 30px;
 }
 
+.product-terlaris .card-product {
+  text-align: center;
+  margin-bottom: 50px;
+  -webkit-box-shadow: 0 15px 30px rgba(102, 113, 228, 0.13);
+          box-shadow: 0 15px 30px rgba(102, 113, 228, 0.13);
+  border: 1px solid #aeaeae67;
+  border-radius: 8px;
+}
+
+.product-terlaris .product-thumbnail {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+}
+
+.product-terlaris .product-thumbnail img {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.product-terlaris .product-thumbnail img:hover {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
+.product-terlaris .title {
+  color: #123049;
+}
+
+.product-terlaris .categories {
+  color: #7686ab;
+}
+
+.product-terlaris .discount .bg-info {
+  background-color: #e64a19 !important;
+}
+
+.product-terlaris s {
+  color: #e64a19;
+}
+
+.product-terlaris .price {
+  color: #232f51;
+}
+
 footer {
-  margin-top: 100vh;
+  margin-top: 100px;
 }
 /*# sourceMappingURL=main.css.map */
