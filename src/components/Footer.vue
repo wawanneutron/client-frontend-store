@@ -1,6 +1,6 @@
 <template>
   <footer
-    style="background: #ffffff; border-top: 5px solid #6677ef"
+    style="background: #ffffff; border-top: 5px solid #e64a19"
     class="pt-5"
   >
     <div class="container-fluid">
@@ -103,15 +103,15 @@
             Senin - Minggu ( 07.00 s/d 16.00 )
           </p>
           <p>
-            <i class="fa fa-map-marker"></i> Desa Gedang Alas, RT/RW : 008/002,
-            Kecamatan Gajah, Kabupaten Demak, Jawa Tengah, 58591
+            <i class="fa fa-map-marker"></i> Desa Pete Tigaraksa Kabupaten
+            Tangerang Banten
           </p>
         </div>
       </div>
       <div class="row text-center mt-3 pb-3">
         <div class="col-md-12">
           <hr />
-          © <strong>Online Shop</strong> 2020 • Hak Cipta Dilindungi
+          © <strong>Online Shop</strong> 2021 • Hak Cipta Dilindungi
         </div>
       </div>
     </div>

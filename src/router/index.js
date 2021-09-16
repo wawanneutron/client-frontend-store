@@ -4,6 +4,11 @@ import { createRouter, createWebHistory } from "vue-router";
 // define a routes
 const routes = [
   {
+    path: "/",
+    name: "home",
+    component: () => import("@/views/Home.vue"),
+  },
+  {
     path: "/register",
     name: "register",
     component: () => import("@/views/auth/Register.vue"),

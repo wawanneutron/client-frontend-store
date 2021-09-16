@@ -1,17 +1,88 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,600&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400&display=swap");
-.header-main {
+#app {
+  margin-top: 150px;
+  font-family: "Poppins", sans-serif;
+}
+
+#app h1 {
+  font-size: 24px;
+  color: #123049;
+}
+
+#app .sub-title {
+  color: #232f51;
+}
+
+@media (max-width: 576px) {
+  #app {
+    font-size: 14px;
+  }
+  #app h1 {
+    font-size: 20px;
+    color: #123049;
+  }
+  #app .sub-title {
+    color: #232f51;
+    font-size: 14px;
+  }
+}
+
+.section-header {
   background-color: #e64a19;
   color: #fff;
-  padding: 7px 0;
 }
 
-.header-main span {
+.section-header .header-main {
+  padding: 10px 0;
+}
+
+.section-header .header-main span {
   color: #fff;
 }
 
-.header-main .search-button {
+.section-header .header-main .search-button {
   background-color: #fff;
   color: #e64a19;
+  padding: 6px 10px;
+}
+
+.section-header .header-main .navbar-toggler-icon {
+  font-size: 10px;
+}
+
+.section-header .navbar {
+  padding: 15px 0;
+}
+
+.section-header .navbar input {
+  padding: 6px;
+}
+
+.section-header .navbar .search-button-mobile {
+  padding: 6px;
+}
+
+.section-header .navbar .navbar-toggler {
+  padding: 4px 8px;
+}
+
+.section-header .navbar .navbar-toggler-icon {
+  font-size: 15px;
+}
+
+.carousel .carousel-control-prev-icon,
+.carousel .carousel-control-next-icon {
+  background-color: #fff;
+  border-radius: 50%;
+  color: rgba(0, 0, 0, 0.486);
+}
+
+.product-terlaris {
+  margin-top: 30px;
+}
+
+footer {
+  margin-top: 100vh;
 }
 /*# sourceMappingURL=main.css.map */

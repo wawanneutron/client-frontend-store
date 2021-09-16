@@ -7,9 +7,3 @@
   </div>
 </template>
 
-<style>
-h1,
-h4 {
-  color: palevioletred;
-}
-</style>

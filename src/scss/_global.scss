@@ -1,0 +1,32 @@
+$color-orange: #e64a19;
+$color-white: #fff;
+$color-text-header: #123049;
+$color-text-subheader: #232f51;
+$color-text-paragraf: #7686ab;
+
+#app {
+  margin-top: 150px;
+  font-family: "Poppins", sans-serif;
+  h1 {
+    font-size: 24px;
+    color: $color-text-header;
+  }
+  .sub-title {
+    color: $color-text-subheader;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 576px) {
+  #app {
+    font-size: 14px;
+    h1 {
+      font-size: 20px;
+      color: $color-text-header;
+    }
+    .sub-title {
+      color: $color-text-subheader;
+      font-size: 14px;
+    }
+  }
+}
