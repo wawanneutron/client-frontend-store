@@ -14,6 +14,11 @@
   color: #232f51;
 }
 
+#app .btn-orange {
+  background-color: #e64a19;
+  color: #fff;
+}
+
 @media (max-width: 576px) {
   #app {
     font-size: 14px;
@@ -26,6 +31,36 @@
     color: #232f51;
     font-size: 14px;
   }
+}
+
+.auth {
+  margin-top: 180px !important;
+}
+
+.auth .border-top-orange {
+  border-top: 3px solid #e64a19 !important;
+  border-radius: 8px;
+}
+
+.auth .title {
+  font-size: 28px;
+  color: #123049;
+}
+
+.auth form {
+  margin-top: 30px;
+}
+
+.auth .btn-login {
+  margin-top: 25px;
+}
+
+.auth .title-register {
+  color: #232f51;
+}
+
+.auth .title-register a {
+  color: #232f51;
 }
 
 .section-header {
@@ -47,16 +82,13 @@
   padding: 6px 10px;
 }
 
-.section-header .header-main .navbar-toggler-icon {
-  font-size: 10px;
-}
-
 .section-header .navbar {
   padding: 15px 0;
 }
 
 .section-header .navbar input {
-  padding: 6px;
+  padding: 6px 0;
+  border: 1px solid #fff;
 }
 
 .section-header .navbar .search-button-mobile {
@@ -64,7 +96,7 @@
 }
 
 .section-header .navbar .navbar-toggler {
-  padding: 4px 8px;
+  padding: 4px;
 }
 
 .section-header .navbar .navbar-toggler-icon {
@@ -143,6 +175,11 @@
 
 .product-terlaris .categories {
   color: #7686ab;
+  margin: 10px 0;
+}
+
+.product-terlaris .discount {
+  margin: 10px 0;
 }
 
 .product-terlaris .discount .bg-info {

@@ -1,0 +1,23 @@
+.auth {
+  margin-top: 180px !important;
+  .border-top-orange {
+    border-top: 3px solid $color-orange !important;
+    border-radius: 8px;
+  }
+  .title {
+    font-size: 28px;
+    color: $color-text-header;
+  }
+  form {
+    margin-top: 30px;
+  }
+  .btn-login {
+    margin-top: 25px;
+  }
+  .title-register {
+    color: $color-text-subheader;
+    a {
+      color: $color-text-subheader;
+    }
+  }
+}

@@ -48,11 +48,10 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <form class="search-wrap">
-          <div class="input-group d-md-none w-100">
+          <div class="input-group d-md-none">
             <input
               type="text"
               class="form-control search-form"
-              style="width: 55%; border: 1px solid #ffffff"
               name="q"
               placeholder="mau beli apa hari ini ?"
             />
@@ -72,7 +71,7 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon" style="font-size: 20px"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">

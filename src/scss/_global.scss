@@ -14,6 +14,10 @@ $color-text-paragraf: #7686ab;
   .sub-title {
     color: $color-text-subheader;
   }
+  .btn-orange {
+    background-color: $color-orange;
+    color: $color-white;
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
