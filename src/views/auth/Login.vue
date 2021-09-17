@@ -15,8 +15,8 @@
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="Username"
-                    aria-label="Username"
+                    placeholder="Email"
+                    aria-label="Email"
                     aria-describedby="basic-addon1"
                   />
                 </div>
@@ -27,8 +27,8 @@
                   <input
                     type="password"
                     class="form-control"
-                    placeholder="Username"
-                    aria-label="Username"
+                    placeholder="Password"
+                    aria-label="Password"
                     aria-describedby="basic-addon1"
                   />
                 </div>
