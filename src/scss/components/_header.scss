@@ -44,6 +44,14 @@
           transition: all 0.5s ease;
         }
       }
+      .btn-more {
+        background-color: $color-orange;
+        color: $color-white;
+        border-radius: 8px;
+        &:hover {
+          background-color: #922200;
+        }
+      }
     }
   }
 }

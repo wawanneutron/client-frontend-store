@@ -17,6 +17,9 @@ $color-text-paragraf: #7686ab;
   .btn-orange {
     background-color: $color-orange;
     color: $color-white;
+    &:hover {
+      background-color: #922200;
+    }
   }
 }
 

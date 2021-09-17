@@ -19,6 +19,10 @@
   color: #fff;
 }
 
+#app .btn-orange:hover {
+  background-color: #922200;
+}
+
 @media (max-width: 576px) {
   #app {
     font-size: 14px;
@@ -129,6 +133,16 @@
   transition: all 0.5s ease;
 }
 
+.section-header .navbar .dropdown-menu .btn-more {
+  background-color: #e64a19;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.section-header .navbar .dropdown-menu .btn-more:hover {
+  background-color: #922200;
+}
+
 .carousel .carousel-control-prev-icon,
 .carousel .carousel-control-next-icon {
   background-color: #fff;
@@ -196,6 +210,21 @@
 
 .product-terlaris .price {
   color: #232f51;
+}
+
+.categories .card-category {
+  text-align: center;
+  color: #232f51;
+  margin-bottom: 20px;
+}
+
+.categories .card-category img {
+  border-radius: 8px;
+}
+
+.categories .breadcrumb .parent a {
+  font-weight: 500;
+  color: #123049 !important;
 }
 
 footer {

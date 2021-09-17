@@ -130,7 +130,11 @@
                 </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="#">Lihat semua product</a>
+                  <router-link
+                    :to="{ name: 'categories' }"
+                    class="dropdown-item btn-more"
+                    >Lihat semua kategori</router-link
+                  >
                 </li>
               </ul>
             </li>

@@ -1,0 +1,18 @@
+.categories {
+  .card-category {
+    text-align: center;
+    color: $color-text-subheader;
+    margin-bottom: 20px;
+    img {
+      border-radius: 8px;
+    }
+  }
+  .breadcrumb {
+    .parent {
+      a {
+        font-weight: 500;
+        color: $color-text-header !important;
+      }
+    }
+  }
+}
