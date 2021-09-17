@@ -63,7 +63,7 @@
                   </div>
                   <div class="col-12">
                     <div class="d-grid d-md-block btn-login text-end">
-                      <button class="btn btn-orange">LOGIN</button>
+                      <button class="btn btn-orange">REGISTER</button>
                     </div>
                   </div>
                 </div>
