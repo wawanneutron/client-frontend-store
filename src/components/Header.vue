@@ -139,9 +139,13 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">
+              <router-link
+                :to="{ name: 'products' }"
+                class="nav-link"
+                aria-current="page"
+              >
                 <i class="fa fa-shopping-bag"></i>
-                Semua Produk</a
+                Semua Produk</router-link
               >
             </li>
             <li class="nav-item">
@@ -157,7 +161,10 @@
           </ul>
           <div class="account">
             <router-link :to="{ name: 'login' }" class="btn"
-              ><i class="fa fa-user-circle"></i> ACCOUNT</router-link
+              ><i class="fa fa-user-circle"></i> Account</router-link
+            >
+            <router-link :to="{ name: 'dashboard' }" class="btn"
+              ><i class="fa fa-tachometer-alt"></i>Dashboard</router-link
             >
           </div>
         </div>

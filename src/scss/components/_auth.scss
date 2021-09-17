@@ -1,9 +1,9 @@
+.border-top-orange {
+  border-top: 3px solid $color-orange !important;
+  border-radius: 8px;
+}
 .auth {
   margin-top: 180px !important;
-  .border-top-orange {
-    border-top: 3px solid $color-orange !important;
-    border-radius: 8px;
-  }
   .title {
     font-size: 28px;
     color: $color-text-header;

@@ -21,6 +21,11 @@ $color-text-paragraf: #7686ab;
       background-color: #922200;
     }
   }
+  .router-link-exact-active.menuItem-active-link {
+    background-color: $color-orange;
+    color: $color-white;
+    border-radius: 8px;
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
