@@ -13,7 +13,18 @@
         <customer-menu />
       </div>
       <div class="col-md-9">
-        <dashboard />
+        <div class="card card-dashboard border-top-orange border-0 shadow">
+          <div class="card-body">
+            <div class="title">
+              <i class="fa fa-tachometer-alt"></i>
+              Dashboard
+            </div>
+            <hr />
+            <div class="mt-3 alert alert-info">
+              Selamat datang <b>{{ user.name }}</b>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -21,12 +32,28 @@
 
 <script>
 import CustomerMenu from "@/components/dashboard/Menu.vue";
-import Dashboard from "@/components/dashboard/Dashboard.vue";
+import { computed } from "@vue/reactivity";
+import { useStore } from "vuex";
+// import { onMounted } from "@vue/runtime-core";
 
 export default {
   components: {
     CustomerMenu,
-    Dashboard,
+  },
+  setup() {
+    const store = useStore();
+
+    // onMounted(() => {
+    //   store.dispatch("auth/getUser");
+    // });
+
+    const user = computed(() => {
+      return store.getters["auth/currentUser"];
+    });
+
+    return {
+      user,
+    };
   },
 };
 </script>

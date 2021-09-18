@@ -34,7 +34,7 @@
             <div class="d-flex justify-content-end">
               <div class="cart-header">
                 <router-link
-                  :to="{ name: 'register' }"
+                  :to="{ name: 'cart' }"
                   class="btn search-button btn-md"
                   ><i class="fa fa-shopping-cart"></i> 0 | Rp. 0
                 </router-link>

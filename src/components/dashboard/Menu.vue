@@ -18,7 +18,7 @@
           <i class="fa fa-shopping-cart"></i>
           My Orders
         </router-link>
-        <a href="#" class="list-group-item">
+        <a @click="logout" class="list-group-item">
           <i class="fa fa-sign-out-alt"></i>
           Logout
         </a>
@@ -26,3 +26,28 @@
     </div>
   </div>
 </template>
+
+<script>
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+export default {
+  setup() {
+    const store = useStore();
+    const router = useRouter();
+
+    const logout = () => {
+      let out = confirm("ingin keluar ?");
+      if (out) {
+        store.dispatch("auth/logout").then(() => {
+          router.push({ name: "login" });
+        });
+      }
+      console.log("oke");
+    };
+
+    return {
+      logout,
+    };
+  },
+};
+</script>

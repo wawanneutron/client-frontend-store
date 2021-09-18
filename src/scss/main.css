@@ -164,6 +164,11 @@
   margin-top: 30px;
 }
 
+.product-terlaris a {
+  text-decoration: none;
+  color: #7686ab;
+}
+
 .product-terlaris .card-product {
   text-align: center;
   margin-bottom: 50px;
@@ -216,6 +221,23 @@
 
 .product-terlaris .price {
   color: #232f51;
+}
+
+.show-product {
+  color: #123049 !important;
+}
+
+.show-product span {
+  color: #123049 !important;
+}
+
+.show-product s {
+  -webkit-text-decoration-color: red;
+          text-decoration-color: red;
+}
+
+.categories a {
+  text-decoration: none;
 }
 
 .categories .card-category {
