@@ -6,6 +6,7 @@ const product = {
   state: {
     terlaris: [],
     homeProducts: [],
+    allProducts: [],
   },
   mutations: {
     GET_TERLARIS(state, product) {
@@ -13,6 +14,9 @@ const product = {
     },
     GET_HOME_PRODUCTS(state, product) {
       state.homeProducts = product;
+    },
+    GET_PRODUCTS_ALL(state, data) {
+      state.allProducts = data;
     },
   },
   actions: {
@@ -34,6 +38,15 @@ const product = {
           console.log(error);
         });
     },
+    getProductsAll({ commit }) {
+      Api.get("/products")
+        .then((response) => {
+          commit("GET_PRODUCTS_ALL", response.data.product);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
   getters: {
     getTerlaris(state) {
@@ -41,6 +54,9 @@ const product = {
     },
     getHomeProducts(state) {
       return state.homeProducts;
+    },
+    getAllProducts(state) {
+      return state.allProducts;
     },
   },
 };

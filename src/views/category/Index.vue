@@ -12,97 +12,39 @@
       <h1>Semua Kategori</h1>
     </div>
     <div class="row">
-      <div class="col-lg-2 col-md-3">
-        <router-link :to="{ name: 'category' }">
-          <div class="card card-category">
-            <div class="card-body">
-              <img
-                src="https://adminsport.my.id/storage/category-images/MxL2JxlDVtBv8KEkuITGKbxYQWS5ibWTbvBIKXDT.png"
-                alt="card image"
-                width="100"
-              />
-              <hr />
-
-              <div class="title">Sepatu Converse Chuck Taylor AS 70's</div>
+      <template v-for="category of categories" :key="category.id">
+        <div class="col-lg-2 col-md-3">
+          <router-link :to="{ name: 'category' }">
+            <div class="card card-category">
+              <div class="card-body">
+                <img :src="category.image" alt="card image" width="100" />
+                <hr />
+                <div class="title">{{ category.name }}</div>
+              </div>
             </div>
-          </div>
-        </router-link>
-      </div>
-      <div class="col-lg-2 col-md-3">
-        <router-link :to="{ name: 'category' }">
-          <div class="card card-category">
-            <div class="card-body">
-              <img
-                src="https://adminsport.my.id/storage/category-images/yGxOA4ql1fmhAdwLOw38KyrEKkXgMTNu9lIYxqLQ.png"
-                alt="card image"
-                width="100"
-              />
-              <hr />
-              <div class="title">Sepatu Converse Chuck Taylor AS 70's</div>
-            </div>
-          </div>
-        </router-link>
-      </div>
-      <div class="col-lg-2 col-md-3">
-        <router-link :to="{ name: 'category' }">
-          <div class="card card-category">
-            <div class="card-body">
-              <img
-                src="https://adminsport.my.id/storage/category-images/WzDMMMg9FSHYTL9pjlUv9Qkbi8yjBGDeKp6Ho8Kj.png"
-                alt="card image"
-                width="100"
-              />
-              <hr />
-              <div class="title">Sepatu Converse Chuck Taylor AS 70's</div>
-            </div>
-          </div>
-        </router-link>
-      </div>
-      <div class="col-lg-2 col-md-3">
-        <router-link :to="{ name: 'category' }">
-          <div class="card card-category">
-            <div class="card-body">
-              <img
-                src="https://adminsport.my.id/storage/category-images/mLFguUpDHpMLyRmz1lvatJ2QCAgiQ1mTpWrGrNPS.webp"
-                alt="card image"
-                width="100"
-              />
-              <hr />
-              <div class="title">Sepatu Converse Chuck Taylor AS 70's</div>
-            </div>
-          </div>
-        </router-link>
-      </div>
-      <div class="col-lg-2 col-md-3">
-        <router-link :to="{ name: 'category' }">
-          <div class="card card-category">
-            <div class="card-body">
-              <img
-                src="https://adminsport.my.id/storage/category-images/jQWGi511uf4yuwgmjaXez1MQAA3n4RgAlQ7XTmdV.png"
-                alt="card image"
-                width="100"
-              />
-              <hr />
-              <div class="title">Sepatu Converse Chuck Taylor AS 70's</div>
-            </div>
-          </div>
-        </router-link>
-      </div>
-      <div class="col-lg-2 col-md-3">
-        <router-link :to="{ name: 'category' }">
-          <div class="card card-category">
-            <div class="card-body">
-              <img
-                src="https://adminsport.my.id/storage/category-images/WivpPUv4HQVxR6YUxkyBgf6xrvIK3rrk8hFyhl1x.webp"
-                alt="card image"
-                width="100"
-              />
-              <hr />
-              <div class="title">Sepatu Converse Chuck Taylor AS 70's</div>
-            </div>
-          </div>
-        </router-link>
-      </div>
+          </router-link>
+        </div>
+      </template>
     </div>
   </div>
 </template>
+
+<script>
+import { computed, onMounted } from "@vue/runtime-core";
+import { useStore } from "vuex";
+export default {
+  setup() {
+    const store = useStore();
+    onMounted(() => {
+      store.dispatch("category/allCategories");
+    });
+    const categories = computed(() => {
+      return store.getters["category/getAllCategories"];
+    });
+
+    return {
+      categories,
+    };
+  },
+};
+</script>

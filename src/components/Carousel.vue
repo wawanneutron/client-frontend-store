@@ -5,19 +5,13 @@
     data-bs-ride="carousel"
   >
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img
-          src="https://adminsport.my.id/storage/slider-images/ekZiNhONtS1QFccGVSKEBfXnSUPTZpUqh8zAEuDw.png"
-          class="d-block w-100"
-          alt="carousel"
-        />
-      </div>
-      <div class="carousel-item">
-        <img
-          src="https://adminsport.my.id/storage/slider-images/fR0unEpSQZdDivlLKAfmbkZP43ff50hlfwwvSn3g.png"
-          class="d-block w-100"
-          alt="carousel"
-        />
+      <div
+        class="carousel-item"
+        v-for="(data, id) of carousel"
+        :key="data.id"
+        :class="{ active: id == 0 }"
+      >
+        <img :src="data.image" class="d-block w-100" alt="carousel" />
       </div>
     </div>
     <button
@@ -44,3 +38,24 @@
     </button>
   </div>
 </template>
+
+<script>
+import { computed, onMounted } from "@vue/runtime-core";
+import { useStore } from "vuex";
+export default {
+  setup() {
+    const store = useStore();
+
+    onMounted(() => {
+      store.dispatch("carousel/carousel");
+    });
+    const carousel = computed(() => {
+      return store.getters["carousel/getCarousel"];
+    });
+
+    return {
+      carousel,
+    };
+  },
+};
+</script>

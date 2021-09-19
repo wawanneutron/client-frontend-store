@@ -94,46 +94,14 @@
                 Kategori
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <a class="dropdown-item" href="#">
-                    <img
-                      src="https://adminsport.my.id/storage/category-images/MxL2JxlDVtBv8KEkuITGKbxYQWS5ibWTbvBIKXDT.png"
-                      width="50"
-                      alt="kategori"
-                    />
-                    Sepatu Kerja
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">
-                    <img
-                      src="https://adminsport.my.id/storage/category-images/yGxOA4ql1fmhAdwLOw38KyrEKkXgMTNu9lIYxqLQ.png"
-                      width="50"
-                      alt="kategori"
-                    />
-                    Sepatu Sport
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">
-                    <img
-                      src="https://adminsport.my.id/storage/category-images/WzDMMMg9FSHYTL9pjlUv9Qkbi8yjBGDeKp6Ho8Kj.png"
-                      width="50"
-                      alt="kategori"
-                    />
-                    Baju Jersey
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">
-                    <img
-                      src="https://adminsport.my.id/storage/category-images/WivpPUv4HQVxR6YUxkyBgf6xrvIK3rrk8hFyhl1x.webp"
-                      width="50"
-                      alt="kategori"
-                    />
-                    Fashion Pria
-                  </a>
-                </li>
+                <template v-for="data of categories" :key="data.id">
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      <img :src="data.image" width="50" alt="kategori" />
+                      {{ data.name }}
+                    </a>
+                  </li>
+                </template>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
                   <router-link
@@ -178,4 +146,25 @@
     </nav>
   </header>
 </template>
+
+<script>
+import { computed, onMounted } from "@vue/runtime-core";
+import { useStore } from "vuex";
+export default {
+  setup() {
+    const store = useStore();
+
+    onMounted(() => {
+      store.dispatch("category/headerCategory");
+    });
+    const categories = computed(() => {
+      return store.getters["category/getHeaderCategory"];
+    });
+
+    return {
+      categories,
+    };
+  },
+};
+</script>
 
