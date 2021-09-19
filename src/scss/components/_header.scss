@@ -14,11 +14,13 @@
     }
   }
   .navbar {
-    padding: 15px 0;
+    padding: 10px 0;
     input {
-      padding: 6px 0;
       border: 1px solid $color-white;
     }
+    // .search-form {
+    //   width: 100px;
+    // }
     .search-button-mobile {
       padding: 6px;
     }

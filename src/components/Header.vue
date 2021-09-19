@@ -46,33 +46,39 @@
     </section>
     <!-- sub navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <form class="search-wrap">
-          <div class="input-group d-md-none">
-            <input
-              type="text"
-              class="form-control search-form"
-              name="q"
-              placeholder="mau beli apa hari ini ?"
-            />
-            <div class="input-group-append">
-              <button class="btn search-button-mobile" type="submit">
-                <i class="fa fa-search"></i>
-              </button>
-            </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-2">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon" style="font-size: 20px"></span>
+            </button>
           </div>
-        </form>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon" style="font-size: 20px"></span>
-        </button>
+          <div class="col-10">
+            <form class="search-wrap">
+              <div class="input-group d-md-none">
+                <input
+                  type="text"
+                  class="form-control search-form"
+                  name="q"
+                  placeholder="mau beli apa hari ini ?"
+                />
+                <div class="input-group-append">
+                  <button class="btn search-button-mobile" type="submit">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item dropdown">
