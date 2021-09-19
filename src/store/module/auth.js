@@ -1,4 +1,4 @@
-import Api from "../../api/Api";
+import Api from "@/api/Api.js";
 
 const auth = {
   // set namspaced true
