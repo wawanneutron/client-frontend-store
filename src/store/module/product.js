@@ -7,6 +7,8 @@ const product = {
     terlaris: [],
     homeProducts: [],
     allProducts: [],
+    detailProduct: {},
+    galleries: [],
   },
   mutations: {
     GET_TERLARIS(state, product) {
@@ -17,6 +19,12 @@ const product = {
     },
     GET_PRODUCTS_ALL(state, data) {
       state.allProducts = data;
+    },
+    GET_DETAIL(state, product) {
+      state.detailProduct = product;
+    },
+    GET_GALLERIES(state, data) {
+      state.galleries = data;
     },
   },
   actions: {
@@ -47,6 +55,16 @@ const product = {
           console.log(error);
         });
     },
+    detailProduct({ commit }, slug) {
+      Api.get(`/product/${slug}`)
+        .then((response) => {
+          commit("GET_DETAIL", response.data.product);
+          commit("GET_GALLERIES", response.data.product.gallery);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
   getters: {
     getTerlaris(state) {
@@ -57,6 +75,12 @@ const product = {
     },
     getAllProducts(state) {
       return state.allProducts;
+    },
+    getDetailProduct(state) {
+      return state.detailProduct;
+    },
+    getGalleries(state) {
+      return state.galleries;
     },
   },
 };
