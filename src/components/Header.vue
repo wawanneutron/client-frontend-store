@@ -36,7 +36,8 @@
                 <router-link
                   :to="{ name: 'cart' }"
                   class="btn search-button btn-md"
-                  ><i class="fa fa-shopping-cart"></i> 0 | Rp. 0
+                  ><i class="fa fa-shopping-cart"></i> {{ cartCount }} | Rp.
+                  {{ moneyFormat(cartTotal) }}
                 </router-link>
               </div>
             </div>
@@ -81,36 +82,15 @@
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
+            <li class="nav-item">
+              <router-link
+                :to="{ name: 'categories' }"
+                class="nav-link"
+                aria-current="page"
               >
-                <i class="fa fa-list-ul"></i>
-                Kategori
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <template v-for="data of categories" :key="data.id">
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      <img :src="data.image" width="50" alt="kategori" />
-                      {{ data.name }}
-                    </a>
-                  </li>
-                </template>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <router-link
-                    :to="{ name: 'categories' }"
-                    class="dropdown-item btn-more"
-                    >Lihat semua kategori</router-link
-                  >
-                </li>
-              </ul>
+                <i class="fa fa-shopping-bag"></i>
+                semua kategori</router-link
+              >
             </li>
             <li class="nav-item">
               <router-link
@@ -155,14 +135,28 @@ export default {
     const store = useStore();
 
     onMounted(() => {
-      store.dispatch("category/headerCategory");
-    });
-    const categories = computed(() => {
-      return store.getters["category/getHeaderCategory"];
+      // check state token
+      const token = store.state.auth.token;
+      if (!token) {
+        return;
+      }
+      // action
+      store.dispatch("cart/cartCount");
+      store.dispatch("cart/cartTotal");
     });
 
+    const cartCount = computed(() => {
+      return store.getters["cart/getCartCount"];
+    });
+    const cartTotal = computed(() => {
+      return store.getters["cart/getTotalCart"];
+    });
+
+    console.log([cartCount, cartTotal]);
+
     return {
-      categories,
+      cartCount,
+      cartTotal,
     };
   },
 };
