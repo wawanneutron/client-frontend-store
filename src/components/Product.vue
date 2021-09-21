@@ -3,7 +3,7 @@
     <div class="row">
       <template v-for="data of products" :key="data.id">
         <div class="col-md-3">
-          <router-link :to="{ name: 'detail' }">
+          <router-link :to="{ name: 'detail', params: { slug: data.slug } }">
             <div class="card card-product">
               <div class="product-thumbnail">
                 <img :src="data.gallery[0].image" alt="card image" />

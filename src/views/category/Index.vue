@@ -14,7 +14,9 @@
     <div class="row">
       <template v-for="category of categories" :key="category.id">
         <div class="col-lg-2 col-md-3">
-          <router-link :to="{ name: 'category' }">
+          <router-link
+            :to="{ name: 'category', params: { slug: category.slug } }"
+          >
             <div class="card card-category">
               <div class="card-body">
                 <img :src="category.image" alt="card image" width="100" />
