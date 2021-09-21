@@ -11,7 +11,7 @@ const routes = [
     component: () => import("@/views/Home.vue"),
   },
   {
-    path: "/product/sepatu-converse-chuck-taylor",
+    path: "/product/:slug",
     name: "detail",
     component: () => import("@/views/Show.vue"),
   },
@@ -21,7 +21,7 @@ const routes = [
     component: () => import("@/views/category/Index.vue"),
   },
   {
-    path: "/category/sepatu",
+    path: "/category/:slug",
     name: "category",
     component: () => import("@/views/category/Show.vue"),
   },
