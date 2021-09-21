@@ -5,6 +5,8 @@ const category = {
   state: {
     headerCategories: [],
     allCategories: [],
+    productsCategory: [],
+    categoryShow: {},
   },
   mutations: {
     GET_CATEGORY_HEADER(state, category) {
@@ -12,6 +14,12 @@ const category = {
     },
     GET_ALL_CATEGORIES(state, data) {
       state.allCategories = data;
+    },
+    GET_PRODUCTS_ON_CATEGORY(state, products) {
+      state.productsCategory = products;
+    },
+    GET_CATEGORY_SHOW(state, category) {
+      state.categoryShow = category;
     },
   },
   actions: {
@@ -33,6 +41,16 @@ const category = {
           console.log(error);
         });
     },
+    productsCategory({ commit }, slug) {
+      Api.get(`/category-show/${slug}`)
+        .then((response) => {
+          commit("GET_PRODUCTS_ON_CATEGORY", response.data.product);
+          commit("GET_CATEGORY_SHOW", response.data.category);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
   getters: {
     getHeaderCategory(state) {
@@ -40,6 +58,12 @@ const category = {
     },
     getAllCategories(state) {
       return state.allCategories;
+    },
+    getProductsCategory(state) {
+      return state.productsCategory;
+    },
+    getCategoryShow(state) {
+      return state.categoryShow;
     },
   },
 };
