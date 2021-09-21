@@ -8,6 +8,9 @@
               <div class="title">Login</div>
               <hr />
               <form @submit.prevent="login">
+                <div v-if="valid.message" class="alert alert-danger mt-1">
+                  {{ valid.message }}
+                </div>
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1">
                     <i class="fa fa-envelope"></i>
