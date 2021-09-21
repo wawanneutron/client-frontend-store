@@ -15,6 +15,10 @@ const auth = {
     GET_USER(state, user) {
       state.user = user;
     },
+    AUTH_DELETE(state) {
+      state.token = "";
+      state.user = {};
+    },
   },
   actions: {
     register({ commit }, user) {
@@ -88,12 +92,19 @@ const auth = {
       });
     },
 
-    logout() {
-      localStorage.removeItem("token");
-      localStorage.removeItem("user");
+    logout({ commit }) {
+      return new Promise((resolve) => {
+        commit("AUTH_DELETE");
+        commit("cart/GET_CART", 0, { root: true });
+        commit("cart/TOTAL_CART", 0, { root: true });
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
 
-      //delete header axios
-      delete Api.defaults.headers.common["Authorization"];
+        //delete header axios
+        delete Api.defaults.headers.common["Authorization"];
+
+        resolve();
+      });
     },
   },
   getters: {
