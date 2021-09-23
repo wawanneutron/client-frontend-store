@@ -69,6 +69,13 @@ const auth = {
 
             commit("AUTH_SUCCESS", token, user);
             commit("GET_USER", user);
+            // ketika login commit cart total dan cart count yang ke module state di module cart
+            Api.get("/cart").then((response) => {
+              commit("cart/GET_CART", response.data.cart, { root: true }); //commit lintas jalur sumatra wkwkw
+            });
+            Api.get("/cart/total").then((response) => {
+              commit("cart/TOTAL_CART", response.data.total, { root: true }); //commit lintas jalur sumatra wkwkw
+            });
 
             resolve(response);
           })
