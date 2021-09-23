@@ -14,44 +14,53 @@
               "
             >
               <tbody>
-                <tr>
-                  <td width="25%">
-                    <div class="image-cart">
-                      <img
-                        src="https://adminsport.my.id/storage/product-images/t6EeU2RIKGE5ApMEG8HWt1G8X7mRa4K8Elbyv8A5.png"
-                        style="width: 100%; border-radius: 0.5rem"
-                      />
-                    </div>
-                  </td>
-                  <td class="" width="50%">
-                    <h5>
-                      <b>Macbook pro m1</b>
-                    </h5>
-                    <table class="table-borderless" style="font-size: 14px">
-                      <tr>
-                        <td style="padding: 0.2rem">QTY</td>
-                        <td style="padding: 0.2rem">:</td>
-                        <td style="padding: 0.2rem">
-                          <b>3</b>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                  <td class="text-right">
-                    <p class="m-0 font-weight-bold">Rp. 18.000.000</p>
+                <template v-for="cart of carts" :key="cart.id">
+                  <tr>
+                    <td width="25%">
+                      <div class="image-cart">
+                        <img
+                          :src="cart.product.gallery[0].image"
+                          style="width: 100%; border-radius: 0.5rem"
+                        />
+                      </div>
+                    </td>
+                    <td class="" width="50%">
+                      <h5>
+                        <b> {{ cart.product.title }} </b>
+                      </h5>
+                      <table class="table-borderless" style="font-size: 14px">
+                        <tr>
+                          <td style="padding: 0.2rem">QTY</td>
+                          <td style="padding: 0.2rem">:</td>
+                          <td style="padding: 0.2rem">
+                            <b> {{ cart.quantity }} </b>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td class="text-right">
+                      <div class="price">Rp. {{ moneyFormat(cart.price) }}</div>
+                      <p class="m-0">
+                        <s style="text-decoration-color: red">
+                          Rp.
+                          {{
+                            moneyFormat(cart.product.price * cart.quantity)
+                          }}</s
+                        >
+                      </p>
 
-                    <p class="m-0">
-                      <s style="text-decoration-color: red">Rp. 18.000.000</s>
-                    </p>
-
-                    <br />
-                    <div class="text-right">
-                      <button class="btn btn-sm btn-danger">
-                        <i class="fa fa-trash"></i>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
+                      <br />
+                      <div class="text-right">
+                        <button
+                          @click.prevent="removeCart(cart.id)"
+                          class="btn btn-sm btn-danger"
+                        >
+                          <i class="fa fa-trash"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </template>
               </tbody>
             </table>
 
@@ -63,7 +72,7 @@
                   </td>
                   <td class="text-right" width="30%">&nbsp; :</td>
                   <td class="text-right set-td">
-                    <p class="m-0">Rp. 18.000.000</p>
+                    <p class="m-0">Rp. {{ moneyFormat(total) }}</p>
                   </td>
                 </tr>
                 <tr>
@@ -109,6 +118,7 @@
                     id="nama_lengkap"
                     class="form-control"
                     placeholder="Nama lengkap"
+                    v-model="state.name"
                   />
                   <!-- <div v-if="validation.name" class="mt-2 alert alert-danger">
                     Masukan nama lengkap anda
@@ -121,10 +131,11 @@
                     >No. Hp / Whatsapp</label
                   >
                   <input
-                    type="bumber"
+                    type="number"
                     id="phone_number"
                     class="form-control"
                     placeholder="No. Hp / Whatsapp"
+                    v-model="state.phone"
                   />
                   <!-- <div v-if="validation.phone" class="mt-2 alert alert-danger">
                     Masukan No. telpon anda
@@ -136,11 +147,21 @@
                   <label for="province" class="font-weight-bold"
                     >Provinsi</label
                   >
-                  <select class="form-control" id="province">
+                  <select
+                    class="form-control"
+                    id="province"
+                    v-model="state.provinsi_id"
+                    @change="getCities"
+                  >
                     <option value="">-- pilih provinsi --</option>
-                    <option>Banten</option>
-                    <option>Jawa Barat</option>
-                    <option>DKI Jakarta</option>
+                    <template
+                      v-for="provinsi of state.provinces"
+                      :key="provinsi.id"
+                    >
+                      <option :value="provinsi.province_id">
+                        {{ provinsi.name }}
+                      </option>
+                    </template>
                   </select>
                 </div>
               </div>
@@ -151,7 +172,9 @@
                   >
                   <select class="form-control" id="city">
                     <option value="">-- pilih kota --</option>
-                    <option>Tangerang Tangerang Kota</option>
+                    <template v-for="city of state.cities" :key="city.id">
+                      <option>{{ city.name }}</option>
+                    </template>
                   </select>
                 </div>
               </div>
@@ -259,13 +282,17 @@
                     id="alamat"
                     rows="3"
                     placeholder="Alamat Lengkap&#10;&#10;Contoh: Perum Badak Triraksa - Tigaraksa Kab. Tangerang"
+                    v-model="state.address"
                   ></textarea>
                   <div class="mt-2 alert alert-danger">
                     Masukan alamat dengan lengkap
                   </div>
                 </div>
               </div>
-              <button class="btn btn-orange btn-lg btn-block text-uppercase">
+              <button
+                @click.prevent="checkout"
+                class="btn btn-orange btn-lg btn-block text-uppercase"
+              >
                 checkout
               </button>
               <!-- <div
@@ -295,3 +322,81 @@
     </div>
   </div>
 </template>
+
+<script>
+import { computed, reactive } from "@vue/reactivity";
+import { useStore } from "vuex";
+import Api from "@/api/Api.js";
+import { onMounted } from "@vue/runtime-core";
+
+export default {
+  setup() {
+    const store = useStore();
+
+    const carts = computed(() => {
+      return store.getters["cart/getCart"];
+    });
+    const total = computed(() => {
+      return store.getters["cart/getTotalCart"];
+    });
+    const removeCart = (cart_id) => {
+      console.log(cart_id);
+      if (confirm("loe mau hapus ?")) {
+        if (confirm("ini permanen")) {
+          alert("tekan oke");
+          store.dispatch("cart/removeCart", cart_id);
+        }
+      }
+    };
+    /* state */
+    const state = reactive({
+      name: "",
+      phone: "",
+      address: "",
+      provinces: [],
+      provinsi_id: "",
+      cities: [],
+    });
+    /* provinsi */
+    const getProvinces = onMounted(() => {
+      Api.get("/rajaongkir/provinces")
+        .then((response) => {
+          state.provinces = response.data.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
+    /* kota kabupaten */
+    const getCities = () => {
+      Api.get("/rajaongkir/cities", {
+        params: {
+          province_id: state.provinsi_id,
+        },
+      })
+        .then((response) => {
+          state.cities = response.data.data;
+          console.log(state.cities);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+
+    /* checkout */
+    const checkout = () => {
+      console.log([state.name, state.phone, state.address, state.provinsi_id]);
+    };
+
+    return {
+      carts,
+      total,
+      removeCart,
+      state,
+      getProvinces,
+      getCities,
+      checkout,
+    };
+  },
+};
+</script>

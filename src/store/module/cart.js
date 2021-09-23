@@ -67,6 +67,23 @@ const cart = {
           console.log(error);
         });
     },
+    removeCart({ commit }, cart_id) {
+      const token = localStorage.getItem("token");
+      Api.defaults.headers.common["Authorization"] = "Bearer " + token;
+
+      Api.post("/cart/remove", {
+        cart_id: cart_id,
+      }).then(() => {
+        // get cart
+        Api.get("/cart").then((response) => {
+          commit("GET_CART", response.data.cart);
+        });
+        //get total cart
+        Api.get("/cart/total").then((response) => {
+          commit("TOTAL_CART", response.data.total);
+        });
+      });
+    },
   },
   getters: {
     getCart(state) {
